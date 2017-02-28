@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+    <script type="text/javascript">
+      function draw(data) {
+      
+      /*
+        D3.js setup code
+      */
+
+          "use strict";
+          var margin = 100,
+              width = 1000 - margin,
+              height = 400 - margin;
+       
+          var svg = d3.select("body")
+            .append("svg")
+              .attr("width", width + margin)
+              .attr("height", height + margin)
+            .append('g')
+              .attr('class','chart');
+          svg.append("text")
+              .attr("x", 400)
+              .attr("y", 20)
+              .style("text-anchor", "middle")
+              .style("font-weight", "bold")
+              .text("Who has more impact on student's math performance?"); 
+          svg.append("text")
+              .attr("transform", "translate(150, 200)rotate(90)")
+              .style("font-size", "15px")
+              .style("font-family", "arial")
+              .style("font-weight", "bold")
+              .text("Strongly disagree")
+          svg.append("text")
+              .attr("transform", "translate(200, 200)rotate(90)")
+              .style("font-size", "15px")
+              .style("font-family", "arial")
+              .style("font-weight", "bold")
+              .text("Disagree")
+          svg.append("text")
+              .attr("transform", "translate(255, 200)rotate(90)")
+              .style("font-size", "15px")
+              .style("font-family", "arial")
+              .style("font-weight", "bold")
+              .text("Agree")
+          svg.append("text")
+              .attr("transform", "translate(310, 200)rotate(90)")
+              .style("font-size", "15px")
+              .style("font-family", "arial")
+              .style("font-weight", "bold")
+              .text("Strongly Agree")
+      /*
+        Dimple.js Chart construction code
+      */
+      	  debugger;
+          /* omit NAs from the graph */
+      	   data = dimple.filterData(data, "Response", ["Strongly disagree", "Disagree", "Agree", "Strongly agree"]);
+          var myChart = new dimple.chart(svg, data);
+          console.table(data);   //display the data in the console window in Debug mode
+          var x = myChart.addCategoryAxis("x", ["grouping", "Response", "CNT"]); 
+          var y = myChart.addMeasureAxis("y", "wtdmean");
+          y.showGridlines = false;
+          y.overrideMin = 300;
+          y.title = "Average weighted score by Country";
+          x.title = "Student Response by Dynamic"
+          
+          x.addGroupOrderRule(["Strongly disagree", "Disagree", "Agree", "Strongly agree"]);
+          y.tickFormat = ",.0f";   /* this sets the number of decimal places to show on the vertical axis */
+          var mySeries = myChart.addSeries("CNT", dimple.plot.bar);
+
+          /* Format the tooltip   */
+          mySeries.getTooltipText = function(t) {
+            debugger;
+            var dynamic = ["Friends work hard in math", "Parents believe math is important", "Math teacher helps students with learning"];
+            if(t.xField[0] == "Friends") {dynamic = "Friends work hard in math"};
+            if(t.xField[0] == "Parents") {dynamic = "Parents believe math is important"};
+            if(t.xField[0] == "Teachers") {dynamic = "Math teacher helps students with learning"};
+            return[t.xField[2], 
+                  "Dynamic: " + dynamic,
+                  "Response: " + t.xField[1],
+                  "Average weighted score: " + t.yValueList[0]
+
+            ];
+          };
+          myChart.assignColor("Canada", "blue", "black", .2)
+          myChart.addLegend(480, 20, 500, 20, "right");
+          myChart.draw();
+        };
+      </script>
+  </head>
+<body>
+  <script type="text/javascript">
+  /*
+    Use D3 (not dimple.js) to load the CSV file
+    and pass the contents of it to the draw function
+    after converting mean and weight to numerics
+    */
+	d3.csv("USACAD.csv").row(function(d) {
+  	      return {
+  	      	wtdmean : +d.wtdmean,
+  	      	grouping : d.grouping,
+  	      	CNT : d.CNT,
+  	      	Response : d.Response
+  	      	};
+  	}).get(function(error, data) {
+  	
+  	// Robin save this bit for dealing with NA's later
+  	     data = data.filter(function(j) {return j.wtdmean !== 0;});	
+         draw(data);
+  	});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+http://dimplejs.org/examples_viewer.html?id=area_steps_vertical_grouped_100pct
+
+https://github.com/PMSI-
+AlignAlytics/dimple/wiki/dimple.axis#overrideMin
+
+http://bl.ocks.org/d3noob/ccdcb7673cdb3a796e13
+
+http://stackoverflow.com/questions/11252753/rotate-x-axis-text-in-d3
+
+http://dimplejs.org/examples_viewer.html?id=areas_curvy
+
+http://www.oecd.org/pisa/pisaproducts/datavisualizationcontest.htm
+
+https://www.oecd.org/pisa/pisaproducts/pisadataanalysismanualspssandsassecondedition.htm
+
+https://discussions.udacity.com/t/question-to-dataset-pisa/21365
+
+https://nces.ed.gov/surveys/pisa/pdf/PISA2009CB_quickguide.pdf
+
+https://www.oecd.org/pisa/pisaproducts/PISA%202012%20Technical%20Report_Chapter%2019.pdf
+
+OECD (2009), PISA Data Analysis Manual: SAS, Second Edition, OECD Publishing, Paris.
+DOI: http://dx.doi.org/10.1787/9789264056251-en
+
+https://www.oecd.org/pisa/pisaproducts/PISA%202012%20Technical%20Report_ANNEX%20B%20%E2%80%93%20CONTRAST%20CODING%20USED%20IN%20CONDITIONING.pdf
+
+https://discussions.udacity.com/t/pisa-2012-mean-scores-confusion/33479/3
+
+http://www.keepeek.com/Digital-Asset-Management/oecd/education/pisa-data-analysis-manual-sas-second-edition/analyses-with-plausible-values_9789264056251-9-en#.WJuCZG8rKHs#page4
