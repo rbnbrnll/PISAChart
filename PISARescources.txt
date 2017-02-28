@@ -1,7 +1,17 @@
 http://dimplejs.org/examples_viewer.html?id=area_steps_vertical_grouped_100pct
 
+http://dimplejs.org/adhoc_viewer.html?id=adhoc_bar_custom_tooltips
+
+http://stackoverflow.com/questions/11069278/javascript-if-else-shorthand
+
+https://github.com/PMSI-AlignAlytics/dimple/wiki/dimple.chart#setMargins
+
+http://stackoverflow.com/questions/26009100/dimple-js-d3-js-auto-size-chart-when-window-size-changes
+
 https://github.com/PMSI-
 AlignAlytics/dimple/wiki/dimple.axis#overrideMin
+
+http://cpettitt.github.io/project/dagre-d3/latest/demo/style-attrs.html
 
 http://bl.ocks.org/d3noob/ccdcb7673cdb3a796e13
 
