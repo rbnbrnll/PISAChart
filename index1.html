@@ -15,7 +15,7 @@
           var margin = 100,
               width = 1000 - margin,
               height = 400 - margin;
-       
+          
           var svg = d3.select("body")
             .append("svg")
               .attr("width", width + margin)
@@ -23,35 +23,59 @@
             .append('g')
               .attr('class','chart');
           svg.append("text")
-              .attr("x", 400)
+              .attr("x", 300)
               .attr("y", 20)
               .style("text-anchor", "middle")
               .style("font-weight", "bold")
               .text("Who has more impact on student's math performance?"); 
           svg.append("text")
-              .attr("transform", "translate(150, 200)rotate(90)")
-              .style("font-size", "15px")
+              .attr("transform", "translate(80, 122)rotate(90)")
+              .style("font-size", "12px")
               .style("font-family", "arial")
               .style("font-weight", "bold")
               .text("Strongly disagree")
           svg.append("text")
-              .attr("transform", "translate(200, 200)rotate(90)")
-              .style("font-size", "15px")
+              .attr("transform", "translate(115, 122)rotate(90)")
+              .style("font-size", "12px")
               .style("font-family", "arial")
               .style("font-weight", "bold")
               .text("Disagree")
           svg.append("text")
-              .attr("transform", "translate(255, 200)rotate(90)")
-              .style("font-size", "15px")
+              .attr("transform", "translate(145, 122)rotate(90)")
+              .style("font-size", "12px")
               .style("font-family", "arial")
               .style("font-weight", "bold")
               .text("Agree")
           svg.append("text")
-              .attr("transform", "translate(310, 200)rotate(90)")
-              .style("font-size", "15px")
+              .attr("transform", "translate(178, 122)rotate(90)")
+              .style("font-size", "12px")
               .style("font-family", "arial")
               .style("font-weight", "bold")
               .text("Strongly Agree")
+          svg.append("text")
+              .attr("x", 565)
+              .attr("y", 65)
+              .style("font-family", "arial")
+              .style("font-size", "12px")
+              .text("In Canada effort of friends has little impact compared to in the USA")
+          svg.append("text")
+              .attr("x", 565)
+              .attr("y", 85)
+              .style("font-family", "arial")
+              .style("font-size", "12px")
+              .text("In the USA student's perception of teacher's help has less impact than in Canada")
+          svg.append("text")
+              .attr("x", 565)
+              .attr("y", 105)
+              .style("font-family", "arial")
+              .style("font-size", "12px")
+              .text("In both countries parent's beliefs about math have the most impact")
+          svg.append("text")
+              .attr("x", 50)
+              .attr("y", 300)
+              .style("font-size", "10px")
+              .style("font-style", "italic")
+              .text("Source: 2012 PISA Data")
       /*
         Dimple.js Chart construction code
       */
@@ -59,12 +83,15 @@
           /* omit NAs from the graph */
       	   data = dimple.filterData(data, "Response", ["Strongly disagree", "Disagree", "Agree", "Strongly agree"]);
           var myChart = new dimple.chart(svg, data);
+          myChart.setBounds("50px", "50px", "50%", "50%");
           console.table(data);   //display the data in the console window in Debug mode
           var x = myChart.addCategoryAxis("x", ["grouping", "Response", "CNT"]); 
           var y = myChart.addMeasureAxis("y", "wtdmean");
           y.showGridlines = false;
           y.overrideMin = 300;
           y.title = "Average weighted score by Country";
+          y.fontSize = "12px";
+          x.fontSize = "12px";
           x.title = "Student Response by Dynamic"
           
           x.addGroupOrderRule(["Strongly disagree", "Disagree", "Agree", "Strongly agree"]);
@@ -86,7 +113,7 @@
             ];
           };
           myChart.assignColor("Canada", "blue", "black", .2)
-          myChart.addLegend(480, 20, 500, 20, "right");
+          myChart.addLegend(365, 20, 500, 20, "right");
           myChart.draw();
         };
       </script>
