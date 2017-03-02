@@ -1,3 +1,7 @@
+view-source:http://bl.ocks.org/yavigol/raw/fbb6a04160e1c3ee4731/
+
+http://annapawlicka.com/pretty-charts-with-dimple-js/
+
 http://dimplejs.org/examples_viewer.html?id=area_steps_vertical_grouped_100pct
 
 http://dimplejs.org/adhoc_viewer.html?id=adhoc_bar_custom_tooltips
