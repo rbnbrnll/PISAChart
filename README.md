@@ -5,7 +5,9 @@ This report explores a dataset containing results from the Program for Internati
 
 # Design
 After drawing several sketches of the data I decided using a bar chart in the final graphic was most appropriate.  Four different variables are represented in the graphic: Average score, Country, Question, and student reponse.  This fact made creating a visualization that showed all the relationships a challenge.  
+###
 I realized after my first review that the graphic needed an introduction and better clarification on what the horizontal axis was trying to represent.  After the 2nd reviewer critiqued it I decided to try a side by side bar chart which can be seen in index5.html.  The third reviewer thought stacked would be better as did the first reviewer so a stacked bar chart was the final choice.  Placing the conclusions directly below each question made sense rather than putting them off to the side or stacked.  
+###
 I decided to remove the default x-axis as the ticks were not really needed nor was the line.  Modyifying the default tooltip to have more meaningful data rather than column names also seemed reasonable.  My original thought was to represent Canada in red as that is the predominate color in their flag but opted to use a softer color as recommended in the Udacity Data Visualiaztion course.  Reports produced on the PISA website did not include NA data so I did not put them in my visualization.
 
 
