@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+  <meta charset="utf-8">
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+    <script type="text/javascript">
+      
+      function draw(data) {
+      
+      /*
+        D3.js setup code
+      */
+
+          "use strict";
+          var margin = 200,
+              width = 1000 - margin,
+              height = 1000 - margin;
+          d3.select("body")
+          .append('h2')
+          .text("Students perception of others vs. their PISA math performance");
+          d3.select("body")
+            .append("text")
+            .attr("x", 60)
+            .attr("y", 50)
+            .text('On the 2012 PISA examinations Canadian students average math scores ' +
+              'were higher than in the United States.  In trying to ' +
+              'determine which');
+           
+          
+          d3.select("body")
+            .append("br");
+
+          d3.select("body")
+            .append("text")
+            .text('group dynamic might have more influence on a students ' +
+              'score, three questions and student respsonses from the exam were ' +
+              'analyzed. ');
+
+          d3.select("body")
+            .append("br");
+
+          d3.select("body")
+            .append("text")
+            .text('This graph compares the average math score achieved by ' +
+              'students who gave the same response to the given question within ' +
+              'each country.');     
+
+          d3.select("body")
+            .append("br");       
+          var RespHt = 160
+          var svg = d3.select("body")
+              .append("svg")
+              .attr("width", width + margin)
+              .attr("height", height + margin)
+              .append('g')
+              .attr('class','chart');
+          svg.append("text")
+              .attr("transform", "translate(90, 175)rotate(90)")
+              .style("font-size", "12px")
+              .style("font-family", "arial")
+              .style("font-weight", "bold")
+              .text("Strongly disagree")
+          svg.append("text")
+              .attr("transform", "translate(140 175)rotate(90)")
+              .style("font-size", "12px")
+              .style("font-family", "arial")
+              .style("font-weight", "bold")
+              .text("Disagree")
+          svg.append("text")
+              .attr("transform", "translate(185, 175)rotate(90)")
+              .style("font-size", "12px")
+              .style("font-family", "arial")
+              .style("font-weight", "bold")
+              .text("Agree")
+          svg.append("text")
+              .attr("transform", "translate(230, 175)rotate(90)")
+              .style("font-size", "12px")
+              .style("font-family", "arial")
+              .style("font-weight", "bold")
+              .text("Strongly Agree")
+          svg.append("text")
+              .attr("x", 90)
+              .attr("y", 370)
+              .style("text-anchor", "start")
+              .style("font-size", "12px")
+              .style("font-family", "arial")
+              .text("My friends work hard in math.")
+          svg.append("text")
+              .attr("x", 300)
+              .attr("y", 370)
+              .style("text-anchor", "start")
+              .style("font-size", "12px")
+              .style("font-family", "arial")
+              .text("My parents believe math is important.")
+          svg.append("text")
+              .attr("x", 550)
+              .attr("y", 370)
+              .style("text-anchor", "start")
+              .style("font-size", "12px")
+              .style("font-family", "arial")
+              .text("My teacher helps with learning.")
+          svg.append("text")
+              .attr("x", 50)
+              .attr("y", 520)
+              .style("font-size", "10px")
+              .style("font-style", "italic")
+              .text("Source: 2012 PISA Data")
+          
+          svg.append("text")
+             .attr("x", 75)
+             .attr("y", 430)
+             .text("Canadian students average")
+          svg.append("text")
+             .attr("x", 75)
+             .attr("y", 442)
+             .text("scores are similar regardless")
+          svg.append("text")
+             .attr("x", 75)
+             .attr("y", 454)
+             .text("of how hard they perceive ")
+          svg.append("text")
+             .attr("x", 75)
+             .attr("y", 466)
+             .text("their friends work. It seems")
+          svg.append("text")
+             .attr("x", 75)
+             .attr("y", 478)
+             .text("peer actions have less")
+          svg.append("text")
+             .attr("x", 75)
+             .attr("y", 490)
+             .text("influence in Canada than in")
+          svg.append("text")
+             .attr("x", 75)
+             .attr("y", 502)
+             .text("the US.")
+          
+          svg.append("text")
+             .attr("x", 305)
+             .attr("y", 430)
+             .text("In both countries students")
+          svg.append("text")
+             .attr("x", 305)
+             .attr("y", 442)
+             .text("who strongly agree that  ")
+          svg.append("text")
+             .attr("x", 305)
+             .attr("y", 454)
+             .text("parents believe math is ")
+          svg.append("text")
+             .attr("x", 305)
+             .attr("y", 466)
+             .text("important have a much higher")
+          svg.append("text")
+             .attr("x", 305)
+             .attr("y", 478)
+             .text("average than students who")
+          svg.append("text")
+             .attr("x", 305)
+             .attr("y", 490)
+             .text("strongly disagree.")
+          svg.append("text")
+             .attr("x", 305)
+             .attr("y", 502)
+             .text("countries.")
+          svg.append("text")
+             .attr("x", 545)
+             .attr("y", 430)
+             .text("US students average scores")
+          svg.append("text")
+             .attr("x", 545)
+             .attr("y", 442)
+             .text("are similar regardless of how much")
+          svg.append("text")
+             .attr("x", 545)
+             .attr("y", 454)
+             .text ("help they perceive a teacher gives")
+          svg.append("text")
+             .attr("x", 545)
+             .attr("y", 466)   
+             .text("them. It seems teacher actions have ")
+          svg.append("text")
+             .attr("x", 545)
+             .attr("y", 478)
+             .text("less influence in the US than")
+          svg.append("text")
+             .attr("x", 545)
+             .attr("y", 490)
+             .text("in Canada.")
+     
+
+         
+      /*
+        Dimple.js Chart construction code
+      */
+      	  debugger;
+          /* omit NAs from the graph */
+      	   data = dimple.filterData(data, "Response", ["Strongly disagree", "Disagree", "Agree", "Strongly agree"]);
+       
+          var myChart = new dimple.chart(svg, data);
+          myChart.setBounds("50px", "50px", "70%", "30%"); 
+          console.table(data);   //display the data in the console window in Debug mode
+          var x = myChart.addCategoryAxis("x", ["question", "Response", "CNT"]); 
+          var y = myChart.addMeasureAxis("y", ["wtdmean"]);
+          y.showGridlines = false;
+          x.hidden = true;  //turn off the x-axis so we can display our own 
+          y.overrideMin = 300;
+          y.title = "Average weighted math score by Country";
+          y.fontSize = "12px";
+          x.fontSize = "10px";
+          x.title = "Student response to each statement presented on the exam";
+         
+         //Arrange how the response appears
+          x.addOrderRule("question");
+          x.addGroupOrderRule(["Strongly disagree", "Disagree", "Agree", "Strongly agree"]);
+          y.tickFormat = ",.0f";   //set the number of decimal places to show on the vertical axis 
+          
+          var mySeries = myChart.addSeries("CNT", dimple.plot.bar);
+
+          
+
+          /* Format the tooltip   */
+          mySeries.getTooltipText = function(t) {
+            debugger;
+            return[t.xField[2], 
+                  "Question: " + t.xField[0],
+                  "Response: " + t.xField[1],
+                  "Average weighted score: " + t.yValueList[0]
+
+            ];
+          };
+          myChart.assignColor("Canada", "blue", "black", .2)
+          myChart.addLegend(170, 40, 500, 80, "right");
+          myChart.draw();
+    
+        };
+
+
+      </script>
+
+  </head>
+<body>
+  <script type="text/javascript">
+  /*
+    Use D3 (not dimple.js) to load the CSV file
+    and pass the contents of it to the draw function
+    after converting mean and weight to numerics
+    */
+	d3.csv("USACAD.csv").row(function(d) {
+  	      return {
+  	      	wtdmean : +d.wtdmean,
+  	      	grouping : d.grouping,
+  	      	CNT : d.CNT,
+            question : d.question,
+  	      	Response : d.Response,
+            combo : d.combo
+  	      	};
+  	}).get(function(error, data) {
+  	
+  	         draw(data);
+  	});
+
+  
+    </script>
+
+</body>
+</html>
